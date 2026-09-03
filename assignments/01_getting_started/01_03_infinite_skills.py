@@ -1,0 +1,4 @@
+#If I had infinite coding skills, I would create a progam that could solve any problem in the world to correct all conflict and create a world that works together in unity. For everyone to come together and build a better future for the world we live in.
+#There's not much of anything else I would do with infinite coding skills, because I think that would be the most important thing to do with it.
+#Because why would I not only give back to the world with my immense power, I have no intrest in self gain.
+#A man/woman with infinite power means nothing if he/she chooses not to give back to those who need it most.
