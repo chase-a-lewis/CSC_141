@@ -5,4 +5,4 @@ make_tshirt(size='Large', text_of_shirt='I love Python')
 make_tshirt('2XL', "Those who don't know Python don't know anything.")
 
 # No python, no Peace
-# Know python, know Peace
+# Know python, know 
