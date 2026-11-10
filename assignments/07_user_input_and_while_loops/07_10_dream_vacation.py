@@ -13,7 +13,7 @@ while polling:
     if repeat == "no":
         polling = False
 
-print("\n--- Dream Vacation Poll Results ---")
+print("\nDream Vacation Poll Results")
 
 for name, place in responses.items():
     print(f"{name} would like to visit {place}.")
