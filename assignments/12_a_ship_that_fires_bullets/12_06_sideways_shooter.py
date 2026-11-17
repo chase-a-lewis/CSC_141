@@ -6,7 +6,7 @@ pygame.init()
 screen = pygame.display.set_mode((1200, 800))
 pygame.display.set_caption("Sideways Shooter")
 
-bg_color = (230, 230, 230)
+bg_color = (0, 0, 255)
 
 ship = pygame.Rect(50, 375, 60, 50)
 
