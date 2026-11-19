@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
 pygame.init()
 
-ship = Ship
+ship = Ship(ai)
 
 screen = pygame.display.set_mode((1200, 800))
 pygame.display.set_caption("Sideways Shooter")
@@ -70,25 +70,21 @@ while True:
             elif event.key == pygame.K_DOWN:
                 moving_down = False
 
-if moving_up and ship.top > 0:
-    ship.y -= 5
+    if moving_up and ship.top > 0:
+        ship.y -= 5
 
-if moving_down and ship.bottom < screen.get_height():
-    ship.y += 5
+    if moving_down and ship.bottom < screen.get_height():
+        ship.y += 5
 
-for bullet in bullets:
-    bullet.x += bullet_speed
+    for bullet in bullets:
+        bullet.x += bullet_speed
 
-for bullet in bullets[:]:
-    if bullet.left > screen.get_width():
-        bullets.remove(bullet)
+    for bullet in bullets[:]:
+        if bullet.left > screen.get_width():
+            bullets.remove(bullet)
 
-screen.fill(bg_color)
+    for bullet in bullets:
+        pygame.draw.rect(screen, (0, 0, 0), bullet)
 
-pygame.draw.rect(screen, (255, 0, 0), ship)
-
-for bullet in bullets:
-    pygame.draw.rect(screen, (0, 0, 0), bullet)
-
-pygame.display.flip()
-clock.tick(60)
+    pygame.display.flip()
+    clock.tick(60)

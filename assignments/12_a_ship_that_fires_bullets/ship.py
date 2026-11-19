@@ -1,3 +1,6 @@
+import sys
+from xxlimited import new
+
 import pygame
 
 class Ship:
