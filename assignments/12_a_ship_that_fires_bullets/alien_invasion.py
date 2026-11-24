@@ -1,6 +1,7 @@
 import sys
 import pygame
 from ship import Ship
+from ship_attack import ShipAttack
 from alien import Alien
 from bullet import Bullet
 
@@ -13,8 +14,12 @@ class AlienInvasion:
         pygame.display.set_caption("Sideways Shooter")
 
         self.ship_image = Ship(self).image
-
         self.ship_image = pygame.transform.scale(self.ship_image, (100, 100))
+
+        self.ship_attack_image = ShipAttack(self).image
+        self.shooting_image = pygame.transform.scale(self.ship_attack_image, (100, 100))
+
+        self.shooting_timer = 0
         self.ship = self.ship_image.get_rect()
         self.ship.left = 50
         self.ship.centery = 400
@@ -74,14 +79,15 @@ class AlienInvasion:
 
     def fire_bullet(self):
 
-        bullet = pygame.Rect(
-            self.ship.right,
-            self.ship.centery - 3,
-            20,
-            6
-        )
+        bullet = pygame.Rect(self.ship.right, self.ship.centery - 50, 20, 6)
 
         self.bullets.append(bullet)
+
+    # Change character image
+        self.current_ship_image = self.shooting_image
+
+    # Set shooting duration
+        self.shooting_timer = 10
 
     def update_bullets(self):
 
@@ -92,21 +98,24 @@ class AlienInvasion:
             if bullet.left > 1200:
                 self.bullets.remove(bullet)
 
+        # Return to normal image after shooting
+        if self.shooting_timer > 0:
+            self.shooting_timer -= 1
+        else:
+            self.current_ship_image = self.ship_image
+
     def update_screen(self):
 
         self.screen.fill((0, 0, 255))
 
-        # Draw Kratos
-        self.screen.blit(pygame.transform.scale(self.ship_image, (100, 100)), self.ship)
+        self.screen.blit(self.current_ship_image, self.ship)
 
-        # Draw bullets
         for bullet in self.bullets:
             self.screen.blit(pygame.transform.scale(self.bullet_image, (100, 100)), bullet)
 
         pygame.display.flip()
 
         self.clock.tick(60)
-
 
 if __name__ == '__main__':
     ai = AlienInvasion()
