@@ -12,6 +12,7 @@ class ShipAttack:
         self.rect = self.image.get_rect()
 
         self.rect.midbottom = self.screen_rect.center
+        self.rect.y = self.rect.y - 5000  # Adjust the y position to be above the ship
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)

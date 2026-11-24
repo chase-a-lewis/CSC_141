@@ -17,7 +17,7 @@ class AlienInvasion:
         self.ship_image = pygame.transform.scale(self.ship_image, (100, 100))
 
         self.ship_attack_image = ShipAttack(self).image
-        self.shooting_image = pygame.transform.scale(self.ship_attack_image, (100, 100))
+        self.shooting_image = pygame.transform.scale(self.ship_attack_image, (120, 100))
 
         self.shooting_timer = 0
         self.ship = self.ship_image.get_rect()
